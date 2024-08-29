@@ -1,0 +1,40 @@
+trigger: none
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  - template: ./variables.yml
+
+  - name: BicepFilePath
+    value: $(Build.SourcesDirectory)/iac/main.bicep
+  - name: ResourceGroupName
+    value: rg-$(ApplicationName)-$(Env)-$(ReleaseId)
+
+stages:
+  - stage: DeployIac
+    jobs:
+      - job: DeployIac
+        steps:
+          - task: AzureCLI@2
+            displayName: Deploy Bicep template
+            inputs:
+              azureSubscription: $(AZURESVC)
+              scriptType: bash
+              scriptLocation: inlineScript
+              inlineScript: |
+                az deployment group create --resource-group $(ResourceGroup) --template-file $(BicepFilePath) \
+                  --parameters \
+                    app_name=$(ApplicationName) \
+                    env=$(Env) \
+                    release_id=$(ReleaseId) \
+                    openai_location=$(OpenAiLocation) \
+                    openai_sku=$(OpenAiSku) \
+                    gpt4_model_capacity=$(Gpt4ModelCapacity) \
+                    gpt4_model_version=$(Gpt4ModelVersion) \
+                    aiproject_sku=$(AiProjectSku) \
+                    aiproject_connection_aiservices_name=$(AiProjectConnectionAiServicesName) \
+                    aiproject_connection_openai_name=$(AiProjectConnectionOpenAiName) \
+                    aiproject_connection_deployment_openai_name="$(AiProjectConnectionDeplpymentOpenAiName)" \
+                    aihub_friendly_name="$(AiHubFriendlyName)" \
+                    aihub_description="$(AiHubDescription)"

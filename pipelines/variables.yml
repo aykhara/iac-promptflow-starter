@@ -1,0 +1,28 @@
+variables:
+  - group: iac-promptflow-starter-variable-group
+  - name: ApplicationName
+    value: iacpf
+  - name: Env
+    value: test
+  - name: ReleaseId
+    value: 001
+  - name: OpenAiLocation
+    value: switzerlandnorth
+  - name: OpenAiSku
+    value: S0
+  - name: Gpt4ModelCapacity
+    value: 10
+  - name: Gpt4ModelVersion
+    value: 0613
+  - name: AiProjectSku
+    value: Basic
+  - name: AiProjectConnectionAiServicesName
+    value: AzureAIServices_Connection_IaC
+  - name: AiProjectConnectionOpenAiName
+    value: AzureOpenAI_Connection_IaC
+  - name: AiProjectConnectionDeplpymentOpenAiName
+    value: gpt-4
+  - name: AiHubFriendlyName
+    value: "AI resource (IaC test)"
+  - name: AiHubDescription
+    value: "This is an example AI resource for use in Azure AI Studio."
