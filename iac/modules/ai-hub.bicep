@@ -162,7 +162,6 @@ resource aiProject 'Microsoft.MachineLearningServices/workspaces@2024-04-01' = {
       name: 'ustomContentFilter'
       properties: {
         mode: 'Default'
-        basePolicyName: 'Microsoft.Default'
         contentFilters: [
           {
             name: 'hate'
