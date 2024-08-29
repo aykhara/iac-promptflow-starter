@@ -154,7 +154,6 @@ resource aiProject 'Microsoft.MachineLearningServices/workspaces@2024-04-01' = {
           version: gpt4ModelVersion
         }
         versionUpgradeOption: 'OnceNewDefaultVersionAvailable'
-        raiPolicyName: 'CustomContentFilter'
       }
     }
   }
