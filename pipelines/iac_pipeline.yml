@@ -23,6 +23,7 @@ stages:
               scriptType: bash
               scriptLocation: inlineScript
               inlineScript: |
+                az group create --name $(ResourceGroupName) --location $(OpenAiLocation)
                 az deployment group create --resource-group $(ResourceGroupName) --template-file $(BicepFilePath) \
                   --parameters \
                     app_name=$(ApplicationName) \
