@@ -154,6 +154,84 @@ resource aiProject 'Microsoft.MachineLearningServices/workspaces@2024-04-01' = {
           version: gpt4ModelVersion
         }
         versionUpgradeOption: 'OnceNewDefaultVersionAvailable'
+        raiPolicyName: 'CustomContentFilter'
+      }
+    }
+
+    resource customContentFilter 'raiPolicies@2024-04-01-preview' = {
+      name: 'CustomContentFilter'
+      properties: {
+        mode: 'Default'
+        contentFilters: [
+          {
+            name: 'hate'
+            allowedContentLevel: 'Medium'
+            blocking: true
+            enabled: true
+            source: 'Prompt'
+          }
+          {
+            name: 'sexual'
+            allowedContentLevel: 'Medium'
+            blocking: false
+            enabled: true
+            source: 'Prompt'
+          }
+          {
+            name: 'selfharm'
+            allowedContentLevel: 'Medium'
+            blocking: true
+            enabled: true
+            source: 'Prompt'
+          }
+          {
+            name: 'violence'
+            allowedContentLevel: 'Medium'
+            blocking: true
+            enabled: true
+            source: 'Prompt'
+          }
+          {
+            name: 'hate'
+            allowedContentLevel: 'Medium'
+            blocking: true
+            enabled: true
+            source: 'Completion'
+          }
+          {
+            name: 'sexual'
+            allowedContentLevel: 'Medium'
+            blocking: false
+            enabled: true
+            source: 'Completion'
+          }
+          {
+            name: 'selfharm'
+            allowedContentLevel: 'Medium'
+            blocking: true
+            enabled: true
+            source: 'Completion'
+          }
+          {
+            name: 'violence'
+            allowedContentLevel: 'Medium'
+            blocking: true
+            enabled: true
+            source: 'Completion'
+          }
+          {
+            name: 'indirect_attack'
+            blocking: true
+            enabled: true
+            source: 'Prompt'
+          }
+          {
+            name: 'jailbreak'
+            blocking: true
+            enabled: true
+            source: 'Prompt'
+          }
+        ]
       }
     }
   }
