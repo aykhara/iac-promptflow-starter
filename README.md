@@ -1,4 +1,4 @@
-# iac-promptflow-starter
+# IaC Prompt flow Starter
 
 This repository provides Infrastructure as Code (IaC) to automatically create the necessary Azure resources for developing and running flows in Prompt flow, using Azure Pipelines. It includes configurations and scripts that streamline the deployment process, ensuring that you have the required infrastructure set up efficiently.
 
@@ -11,7 +11,7 @@ This repository provides Infrastructure as Code (IaC) to automatically create th
 
 1. Update the existing Azure Pipelines YAML file `pipelines/variables.yml` if necessary.
 
-   | Name                                    | Value                                                        | Note                                                                                                                                                            |
+   | Name                                    | Value (examples)                                             | Note                                                                                                                                                            |
    | --------------------------------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
    | group                                   | iac-promptflow-starter-variable-group                        | The name of the service connection for Azure subscription.                                                                                                      |
    | ApplicationName                         | iacpf                                                        | The name of the application.                                                                                                                                    |
