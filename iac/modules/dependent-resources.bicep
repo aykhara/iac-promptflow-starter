@@ -11,6 +11,9 @@ param tags object = {}
 @description('AI services name')
 param aiServicesName string
 
+@description('Log Analytics workspace name')
+param logAnalyticsWorkspaceName string
+
 @description('Application Insights resource name')
 param applicationInsightsName string
 
@@ -52,6 +55,17 @@ param gpt4ModelCapacity int
 param gpt4ModelVersion string
 
 // --------------------------------------------------
+resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2021-06-01' = {
+  name: logAnalyticsWorkspaceName
+  location: location
+  sku: {
+    name: 'PerGB2018'
+  }
+}
+
+// Log Analytics WorkspaceのリソースIDを変数に格納
+var workspaceResourceId = logAnalyticsWorkspace.id
+
 resource applicationInsights 'Microsoft.Insights/components@2020-02-02' = {
   name: applicationInsightsName
   location: location
@@ -68,6 +82,7 @@ resource applicationInsights 'Microsoft.Insights/components@2020-02-02' = {
     publicNetworkAccessForIngestion: 'Enabled'
     publicNetworkAccessForQuery: 'Disabled'
     Request_Source: 'rest'
+    WorkspaceResourceId: workspaceResourceId
   }
 }
 

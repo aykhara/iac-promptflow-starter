@@ -48,6 +48,7 @@ var aiservice_name = 'ais-${app_name}-${env}-${release_id}'
 var openai_name = 'oai-${app_name}-${env}-${release_id}'
 var st_name = replace('st-${app_name}-${env}-${release_id}', '-', '')
 var kv_name = 'kv-${app_name}-${env}-${release_id}'
+var log_name = 'log-${app_name}-${env}-${release_id}'
 var appi_name = 'appi-${app_name}-${env}-${release_id}'
 var cr_name = replace('cr-${app_name}-${env}-${release_id}', '-', '')
 
@@ -59,6 +60,7 @@ module aiDependencies 'modules/dependent-resources.bicep' = {
     location: location
     storageName: st_name
     keyvaultName: kv_name
+    logAnalyticsWorkspaceName: log_name
     applicationInsightsName: appi_name
     containerRegistryName: cr_name
     aiServicesName: aiservice_name
