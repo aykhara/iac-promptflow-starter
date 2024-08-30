@@ -7,13 +7,13 @@ variables:
   - name: ReleaseId
     value: 001
   - name: OpenAiLocation
-    value: eastus
+    value: westus3
   - name: OpenAiSku
     value: S0
   - name: Gpt4ModelCapacity
     value: 10
   - name: Gpt4ModelVersion
-    value: 0613
+    value: 1106-preview
   - name: AiProjectSku
     value: Basic
   - name: AiProjectConnectionAiServicesName
