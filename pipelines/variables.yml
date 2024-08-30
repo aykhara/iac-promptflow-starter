@@ -1,7 +1,7 @@
 variables:
   - group: iac-promptflow-starter-variable-group
   - name: ApplicationName
-    value: agent
+    value: speechagent
   - name: Env
     value: dev
   - name: ReleaseId
