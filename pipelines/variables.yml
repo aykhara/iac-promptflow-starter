@@ -13,7 +13,7 @@ variables:
   - name: Gpt4ModelCapacity
     value: 10
   - name: Gpt4ModelVersion
-    value: 1106-preview
+    value: 1106-Preview
   - name: AiProjectSku
     value: Basic
   - name: AiProjectConnectionAiServicesName
